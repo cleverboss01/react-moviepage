@@ -43,7 +43,17 @@ const MovieList = () => {
         return movie;
       }
       setMovies([movie]);
-      console.log(movie);
+      return movie;
+    });
+  };
+
+  const filteredRatingsHandler = () => {
+    movies.filter((movie) => {
+      if (movie.rating !== filteredMovies.current.value) {
+        return movie;
+      }
+      setMovies([movie]);
+      return movie;
     });
   };
 
@@ -136,10 +146,22 @@ const MovieList = () => {
             style={{ width: "400px" }}
             className="form-control"
             ref={filteredMovies}
-            placeholder="Filter by Movie name..."
+            placeholder="Filter by name.."
           />
         </label>
         <Filter onFilter={filteredMoviesHandler} />
+      </div>
+      <div>
+        <label>
+          <input
+            type="text"
+            style={{ width: "400px" }}
+            className="form-control"
+            ref={filteredMovies}
+            placeholder="Filter by rating.."
+          />
+        </label>
+        <Filter onFilter={filteredRatingsHandler} />
       </div>
     </div>
   );
