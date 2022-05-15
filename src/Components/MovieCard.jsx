@@ -6,7 +6,7 @@ const MovieCard = ({ posterURL, title, description, rating }) => {
   return (
     <div className="container">
       <div className="card" style={{ width: "19rem" }}>
-        <NavLink to="/trailers/:name">
+        <NavLink to={`/trailers/${title}`}>
           <img
             className="card-img-top"
             src={posterURL}
@@ -17,7 +17,7 @@ const MovieCard = ({ posterURL, title, description, rating }) => {
         <div className="card-body">
           <h5 className="card-title">{title}</h5>
           <p className="card-text">{description}</p>
-          <NavLink to="/trailers/:name" className="btn btn-primary">
+          <NavLink to={`/trailers/${title}`} className="btn btn-primary">
             See Trailer
           </NavLink>
           <br />
